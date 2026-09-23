@@ -111,7 +111,7 @@ a {
   height: 56px;
   border-radius: 0;
   box-shadow: none;
-  object-fit: cover;
+  object-fit: contain;
   background: var(--blue);
 }
 
@@ -296,20 +296,27 @@ h1, h2, h3, p, .lede, .hero-note, .caption {
   color: var(--ink-soft);
 }
 
-.hero-frame {
+.hero-frame,
+.logo-frame {
   position: relative;
+  width: min(100%, 280px);
+  max-width: 100%;
+  margin-left: auto;
+  aspect-ratio: 1 / 1;
+  min-width: 0;
 }
 
-.hero-frame img {
+.hero-frame img,
+.logo-frame img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  max-width: 360px;
-  margin-left: auto;
+  height: 100%;
+  object-fit: contain;
   border-radius: 0;
   box-shadow: var(--shadow);
-  aspect-ratio: 5 / 3;
-  object-fit: cover;
-  object-position: right bottom;
   background: var(--blue);
+  display: block;
 }
 
 .hero-chip {
@@ -499,13 +506,7 @@ h1, h2, h3, p, .lede, .hero-note, .caption {
 }
 
 .photo {
-  width: min(100%, 420px);
-  aspect-ratio: 5 / 3;
-  object-fit: cover;
-  object-position: right bottom;
-  margin-left: auto;
   border-radius: 0;
-  box-shadow: var(--shadow);
   background: var(--blue);
 }
 
@@ -666,7 +667,10 @@ footer {
 
 @media (max-width: 880px) {
   h1 {
-    font-size: clamp(2.05rem, 6vw, 2.8rem);
+    font-size: 1.5rem;
+    width: 320px;
+    max-width: 320px;
+    overflow-wrap: anywhere;
   }
 
   .hero-grid,
@@ -675,11 +679,17 @@ footer {
   .split {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 20px;
+    min-width: 0;
+    max-width: 100%;
   }
 
-  .hero-grid > *,
-  .split > *,
+  .about-intro {
+    align-items: stretch;
+  }
+
+  .hero-grid > *:not(.hero-frame),
+  .split > *:not(.logo-frame),
   .lab > *,
   .cards > *,
   .units > *,
@@ -687,6 +697,15 @@ footer {
     width: 100%;
     max-width: 100%;
     min-width: 0;
+  }
+
+  .hero-grid > .hero-frame,
+  .about-intro > .logo-frame {
+    width: min(260px, calc(100vw - 48px));
+    max-width: min(260px, calc(100vw - 48px));
+    flex: 0 0 auto;
+    margin-left: 0;
+    margin-right: auto;
   }
 
   .cards,
