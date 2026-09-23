@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#5eb3d8" />
+    <title>The Heuristic Project · Algebra you can see</title>
+    <meta
+      name="description"
+      content="A nonprofit teaching Algebra 1 to kids in a visual way — pictures and motion first, symbols second."
+    />
+    <meta property="og:title" content="The Heuristic Project" />
+    <meta property="og:description" content="Algebra 1, taught as pictures kids can actually see." />
+    <meta property="og:image" content="assets/logo.jpg" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Oswald:wght@500;600;700&family=Outfit:wght@400;500;560&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="topbar">
+      <div class="wrap">
+        <a class="brand" href="index.html">
+          <img class="brand-logo" src="assets/logo.jpg" alt="" width="56" height="56" />
+          <span class="brand-name"><strong>The Heuristic Project</strong><small>Algebra 1</small></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true">
+            <path d="M1 1h16M1 6h16M1 11h16" stroke="#1a211c" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+        </button>
+        <nav class="nav" id="site-nav">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="about.html">About</a>
+          <a class="btn primary" href="join.html">Get involved</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="eyebrow">A nonprofit teaching Algebra 1 visually</p>
+            <h1>See the math.<br /><em>Then the symbols click.</em></h1>
+            <p class="lede">
+              The Heuristic Project teaches Algebra 1 the way understanding actually happens:
+              as pictures, motion, and things you can move. Letters come last — once they
+              already mean something.
+            </p>
+            <div class="hero-actions">
+              <a class="btn saffron" href="#lab">Try a visual lesson</a>
+              <a class="btn ghost" href="about.html">Why we started this</a>
+            </div>
+            <p class="hero-note">Founded by Benjamin Lee and Avyaan Saha. Built for students, parents, and classrooms.</p>
+          </div>
+          <div class="hero-frame">
+            <img src="assets/logo.jpg" alt="The Heuristic Project logo: black stacked wordmark on a powder-blue square." />
+          </div>
+        </div>
+        <div class="wrap">
+          <div class="stats">
+            <div class="stat">
+              <b>Picture first</b>
+              <span>Every idea starts as something you can see.</span>
+            </div>
+            <div class="stat">
+              <b>Language next</b>
+              <span>Kids say it in plain words before they write it.</span>
+            </div>
+            <div class="stat">
+              <b>Symbols last</b>
+              <span>x and y arrive as nicknames for pictures they already own.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="lab">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">01 / The lab</p>
+              <h2>Slope is not a formula. It’s a climb.</h2>
+            </div>
+            <p class="lede">
+              Drag the sliders. Watch the line. The blue number is how steep the climb is.
+              The black number is where the line begins. That’s all <em>y = mx + b</em> ever was.
+            </p>
+          </div>
+          <div class="lab">
+            <div class="lab-canvas-wrap">
+              <canvas id="slope-canvas" width="640" height="420" aria-label="Graph of y equals m x plus b"></canvas>
+            </div>
+            <div class="lab-panel">
+              <p class="kicker">Live equation</p>
+              <p class="eq" id="eq-line">y = <span class="m">x</span> <span class="b">+ 1</span></p>
+              <p class="caption" id="slope-caption"></p>
+              <div class="control">
+                <label><span>Slope <i>m</i></span> <strong id="slope-m-val">1</strong></label>
+                <input id="slope-m" type="range" min="-3" max="3" step="0.5" value="1" />
+              </div>
+              <div class="control">
+                <label><span>Start <i>b</i></span> <strong id="slope-b-val">1</strong></label>
+                <input id="slope-b" type="range" min="-4" max="4" step="0.5" value="1" />
+              </div>
+              <div class="presets">
+                <button class="pill" type="button" data-preset="0,2">Flat</button>
+                <button class="pill" type="button" data-preset="0.5,1" aria-pressed="false">Gentle climb</button>
+                <button class="pill" type="button" data-preset="2,-1">Steep</button>
+                <button class="pill" type="button" data-preset="-1,3">Downhill</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section tight">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">02 / How a lesson feels</p>
+              <h2>An equation is a balance, not a riddle.</h2>
+            </div>
+            <p class="lede">
+              Walk the same problem in three pictures. Each step keeps both sides honest.
+              That’s the whole of solving for <em>x</em>.
+            </p>
+          </div>
+          <div class="balance" id="balance-lab">
+            <p class="eq" id="balance-eq">2x + 3 = 11</p>
+            <div class="pans">
+              <div class="pan" id="pan-left" aria-label="Left side of the equation"></div>
+              <div class="equals">=</div>
+              <div class="pan" id="pan-right" aria-label="Right side of the equation"></div>
+            </div>
+            <p class="caption" id="balance-status"></p>
+            <div class="steps">
+              <button class="pill" type="button" data-step="0" aria-pressed="true">Start</button>
+              <button class="pill" type="button" data-step="1">Take 3 off both pans</button>
+              <button class="pill" type="button" data-step="2">Split both pans in half</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">03 / The method</p>
+              <h2>Heuristic, from the Greek: to find.</h2>
+            </div>
+            <p class="lede">
+              We don’t ask kids to memorize a procedure they can’t see. We give them a way
+              to find the idea — then the procedure writes itself.
+            </p>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <p class="num">01</p>
+              <h3>Draw the quantity</h3>
+              <p>A variable is a changing pile, a length, a height. Not a letter hunting for a number.</p>
+            </article>
+            <article class="card">
+              <p class="num">02</p>
+              <h3>Move it</h3>
+              <p>Slope, balance, area, throw-paths. If it can’t be moved, it isn’t ready to be named.</p>
+            </article>
+            <article class="card">
+              <p class="num">03</p>
+              <h3>Name it last</h3>
+              <p>Once the picture is theirs, x and y become nicknames. Algebra stops being a foreign language.</p>
+            </article>
+          </div>
+          <p style="margin-top: 28px">
+            <a class="btn ghost" href="join.html">Get involved</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap foot">
+        <div>
+          <strong>The Heuristic Project</strong>
+          <p>A nonprofit teaching Algebra 1 visually.</p>
+          <p>© <span id="year">2026</span></p>
+        </div>
+        <div>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="join.html">Get involved</a>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
