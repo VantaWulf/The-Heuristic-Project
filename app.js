@@ -218,7 +218,7 @@ function setupForm() {
       "",
       data.message || "",
     ].join("\n");
-    const mailto = `mailto:hello@theheuristicproject.org?subject=${encodeURIComponent("The Heuristic Project")}&body=${encodeURIComponent(body)}`;
+    const mailto = `mailto:theheuristicproject@gmail.com?subject=${encodeURIComponent("The Heuristic Project")}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
     if (status) status.textContent = "Your email app should open with the message ready to send.";
   });

@@ -505,6 +505,13 @@ h1, h2, h3, p, .lede, .hero-note, .caption {
   margin-top: 20px;
 }
 
+.mission {
+  margin: 0 0 22px;
+  max-width: 46rem;
+  font-size: 1.2rem;
+  line-height: 1.45;
+}
+
 .photo {
   border-radius: 0;
   background: var(--blue);
