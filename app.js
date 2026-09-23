@@ -25,7 +25,6 @@ function setupSlopeLab() {
   const mVal = document.getElementById("slope-m-val");
   const bVal = document.getElementById("slope-b-val");
   const eqLine = document.getElementById("eq-line");
-  const caption = document.getElementById("slope-caption");
 
   const draw = () => {
     const m = Number(mEl.value);
@@ -33,7 +32,6 @@ function setupSlopeLab() {
     mVal.textContent = formatNum(m);
     bVal.textContent = formatNum(b);
     if (eqLine) eqLine.innerHTML = "y = " + equationHTML(m, b);
-    caption.textContent = slopeCaption(m, b);
     paintSlope(canvas, m, b);
   };
 
@@ -80,15 +78,6 @@ function equationHTML(m, b) {
     bv === 0 ? "" :
     ` <span class="b">${signed(b)}</span>`;
   return mPart + bPart || '<span class="b">0</span>';
-}
-
-function slopeCaption(m, b) {
-  const start = b === 0
-    ? "The line crosses the origin."
-    : `The line starts at ${formatNum(b)} on the y-axis.`;
-  if (m === 0) return start + " Slope is 0, so it stays perfectly flat — y never changes.";
-  if (m > 0) return start + ` Every time x grows by 1, y climbs ${formatNum(m)}. That climb is the slope.`;
-  return start + ` Every time x grows by 1, y falls ${formatNum(Math.abs(m))}. A negative slope means downhill.`;
 }
 
 function paintSlope(canvas, m, b) {
@@ -170,7 +159,6 @@ function setupBalanceLab() {
   if (!root) return;
   const left = document.getElementById("pan-left");
   const right = document.getElementById("pan-right");
-  const status = document.getElementById("balance-status");
   const eq = document.getElementById("balance-eq");
   let step = 0;
 
@@ -182,19 +170,16 @@ function setupBalanceLab() {
       addTiles(left, "one", 3);
       addTiles(right, "one", 11);
       eq.textContent = "2x + 3 = 11";
-      status.textContent = "Both pans weigh the same. Whatever we do to one side, we do to the other — so the balance stays true.";
     } else if (step === 1) {
       addTiles(left, "x", 2);
       addTiles(left, "one", 3, true);
       addTiles(right, "one", 8);
       addTiles(right, "one", 3, true);
       eq.textContent = "2x = 8";
-      status.textContent = "Take 3 off each pan. The leftover story: two x-blocks balance eight ones.";
     } else {
       addTiles(left, "x", 1);
       addTiles(right, "one", 4);
       eq.textContent = "x = 4";
-      status.textContent = "Split both pans in half. One x-block is four. That’s the number that makes the original equation true.";
     }
   };
 

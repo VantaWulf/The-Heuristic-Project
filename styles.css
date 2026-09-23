@@ -360,11 +360,7 @@ h1, h2, h3, p, .lede, .hero-note, .caption {
 }
 
 .section-head {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
   margin-bottom: 36px;
-  align-items: end;
 }
 
 .kicker {
